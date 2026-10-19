@@ -63,6 +63,14 @@ jobs:
         with:
           name: dist-files
           path: dist
+  report:
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+      - run: |
+          echo "Something went wrong"
+          echo "${{ github }}"
   deploy:
     needs: build
     runs-on: ubuntu-latest
