@@ -1,7 +1,13 @@
 name: Reusable Deploy
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
 jobs:
   deploy: ubuntu-latest
   steps:
+    - name: Get Code
+      uses: actions/download-artifact@v7
+      with:
+        name: ${{  }}
     - name: Output information
       run: echo "Deploying & uploading..."
